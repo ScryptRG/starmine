@@ -1,0 +1,35 @@
+$border-primary: 1px solid rgba(255, 255, 255, 0.234);
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 52em;
+  margin: 0 1em;
+  gap: 1em;
+  border: $border-primary;
+  border-radius: 1em;
+  padding: 2em;
+  color: #eee;
+  font-family: "Rubik";
+  button {
+    border: $border-primary;
+    padding: 1em;
+    background: transparent;
+    border-radius: 0.5em;
+    color: #eee;
+    &:hover {
+      background: rgba(238, 238, 238, 0.05);
+    }
+  }
+  label {
+    font-size: 0.8rem;
+  }
+}
+
+.greenSqr {
+  background-color: green !important;
+}
+
+.redSqr {
+  background-color: red !important;
+}

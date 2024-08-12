@@ -1,0 +1,10 @@
+<section>
+  @for (item of items; track $index) {
+  <button
+    (click)="checkSquare(item)"
+    [ngClass]="{ greenSqr: isMine, redSqr: !isMine }"
+  >
+    {{ item.sign }}
+  </button>
+  }
+</section>

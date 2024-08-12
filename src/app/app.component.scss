@@ -1,0 +1,9 @@
+$primary-color: #04050b;
+
+main {
+  background-color: $primary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
