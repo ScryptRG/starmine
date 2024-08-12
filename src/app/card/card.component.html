@@ -3,8 +3,8 @@
   <button
     (click)="checkSquare(item.id)"
     [ngClass]="{
-      greenSqr: item.id === rightIndex && revealSquare,
-      redSqr: item.id != rightIndex && revealSquare,
+      greenSqr: item.id === rightIndex && rightSquare,
+      redSqr: item.id != rightIndex && wrongSquare,
     }"
   >
     {{ item.sign }}

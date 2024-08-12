@@ -16,13 +16,15 @@ interface ItemsInterface {
 })
 export class CardComponent {
   items: ItemsInterface[] = [];
-  revealSquare = false;
-  rightIndex = Math.floor(Math.random() * this.items.length);
+  rightSquare = false;
+  wrongSquare = false;
+  rightIndex = 0;
 
   ngOnInit(): void {
     for (let i = 0; i < 3; i++) {
       this.items = [...this.items, { id: i, sign: 'X', mine: false }];
     }
+    this.rightIndex = Math.floor(Math.random() * this.items.length);
     this.items[this.rightIndex] = {
       id: this.rightIndex,
       sign: 'X',
@@ -32,7 +34,10 @@ export class CardComponent {
 
   checkSquare(id: any) {
     if (id === this.rightIndex) {
-      this.revealSquare = true;
+      this.rightSquare = true;
+    }
+    if (id != this.rightIndex) {
+      this.wrongSquare = true;
     }
   }
 }
