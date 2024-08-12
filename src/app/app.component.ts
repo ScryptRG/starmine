@@ -11,5 +11,5 @@ import { CardComponent } from './card/card.component';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'genchat';
+  title = 'xmine';
 }

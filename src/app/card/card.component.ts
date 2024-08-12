@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 interface ItemsInterface {
+  id: number;
   sign: string;
   mine: boolean;
 }
@@ -15,21 +16,23 @@ interface ItemsInterface {
 })
 export class CardComponent {
   items: ItemsInterface[] = [];
-  isMine = false;
-  ngOnInit(): void {
-    for (let i = 0; i < 5; i++) {
-      this.items = [...this.items, { sign: 'X', mine: false }];
-    }
+  revealSquare = false;
+  rightIndex = Math.floor(Math.random() * this.items.length);
 
-    this.items[Math.floor(Math.random() * this.items.length)] = {
+  ngOnInit(): void {
+    for (let i = 0; i < 3; i++) {
+      this.items = [...this.items, { id: i, sign: 'X', mine: false }];
+    }
+    this.items[this.rightIndex] = {
+      id: this.rightIndex,
       sign: 'X',
       mine: true,
     };
   }
 
-  checkSquare(items: ItemsInterface) {
-    if (items.mine) {
-      this.isMine = true;
+  checkSquare(id: any) {
+    if (id === this.rightIndex) {
+      this.revealSquare = true;
     }
   }
 }

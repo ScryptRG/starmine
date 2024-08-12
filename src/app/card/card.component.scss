@@ -4,7 +4,6 @@ section {
   display: flex;
   flex-wrap: wrap;
   max-width: 52em;
-  margin: 0 1em;
   gap: 1em;
   border: $border-primary;
   border-radius: 1em;
@@ -32,4 +31,8 @@ section {
 
 .redSqr {
   background-color: red !important;
+}
+
+.neutralSqr {
+  background: transparent !important;
 }

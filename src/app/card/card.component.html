@@ -1,8 +1,11 @@
 <section>
   @for (item of items; track $index) {
   <button
-    (click)="checkSquare(item)"
-    [ngClass]="{ greenSqr: isMine, redSqr: !isMine }"
+    (click)="checkSquare(item.id)"
+    [ngClass]="{
+      greenSqr: item.id === rightIndex && revealSquare,
+      redSqr: item.id != rightIndex && revealSquare,
+    }"
   >
     {{ item.sign }}
   </button>
