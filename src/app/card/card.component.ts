@@ -15,11 +15,16 @@ interface ItemsInterface {
 export class CardComponent {
   items: ItemsInterface[] = [];
   rightIndex: number = 0;
-  odd: number = 1.01;
+  count: number = 0;
+  record: number = 0;
   stack: number = 15;
   withdrawal: number = 0;
+  discard: boolean = false;
+  numbers: number[] = [0, 1, 2, 3, 4, 5];
+
   ngOnInit(): void {
-    for (let i = 0; i < 48; i++) {
+    for (let i = 0; i < 42; i++) {
+      this.numbers.push(i);
       this.items = [...this.items, { id: i, isClicked: false }];
     }
     this.rightIndex = Math.floor(Math.random() * this.items.length);
@@ -31,22 +36,39 @@ export class CardComponent {
 
   checkSquare(id: any) {
     if (!this.items[id].isClicked) {
+      this.numbers = this.numbers.filter((item) => item != id);
       this.items[id].isClicked = true;
-      this.odd *= 1.08;
-      this.withdrawal = this.stack * this.odd;
+      this.withdrawal = this.stack * this.count;
+      this.count++;
+      if (this.items[id].id === this.rightIndex) {
+        this.discard = true;
+        if (this.record === 0) {
+          this.record = this.count;
+        } else {
+          if (this.count < this.record) {
+            this.record = this.count;
+          }
+        }
+      }
     }
   }
 
   reset() {
     this.items = [];
     this.rightIndex = 0;
-    this.odd = 1.01;
+    this.count = 0;
     this.stack = 15;
     this.withdrawal = 0;
+    this.discard = false;
     this.ngOnInit();
   }
 
-  mask() {
-    alert('ok');
+  random() {
+    const randomSquare =
+      this.numbers[Math.floor(Math.random() * this.numbers.length)];
+    if (!this.items[randomSquare].isClicked) {
+      this.checkSquare(randomSquare);
+    }
+    this.numbers = this.numbers.filter((item) => item != randomSquare);
   }
 }
