@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-
+import 'iconify-icon';
 interface ItemsInterface {
   id: number;
-  sign: string;
-  mine: boolean;
+  isClicked: boolean;
 }
 
 @Component({
@@ -16,28 +15,39 @@ interface ItemsInterface {
 })
 export class CardComponent {
   items: ItemsInterface[] = [];
-  rightSquare = false;
-  wrongSquare = false;
-  rightIndex = 0;
-
+  rightIndex: number = 0;
+  odd: number = 1.01;
+  stack: number = 15;
+  withdrawal: number = 0;
   ngOnInit(): void {
-    for (let i = 0; i < 3; i++) {
-      this.items = [...this.items, { id: i, sign: 'X', mine: false }];
+    for (let i = 0; i < 12; i++) {
+      this.items = [...this.items, { id: i, isClicked: false }];
     }
     this.rightIndex = Math.floor(Math.random() * this.items.length);
     this.items[this.rightIndex] = {
       id: this.rightIndex,
-      sign: 'X',
-      mine: true,
+      isClicked: false,
     };
   }
 
   checkSquare(id: any) {
-    if (id === this.rightIndex) {
-      this.rightSquare = true;
+    if (!this.items[id].isClicked) {
+      this.items[id].isClicked = true;
+      this.odd *= 1.08;
+      this.withdrawal = this.stack * this.odd;
     }
-    if (id != this.rightIndex) {
-      this.wrongSquare = true;
-    }
+  }
+
+  reset() {
+    this.items = [];
+    this.rightIndex = 0;
+    this.odd = 1.01;
+    this.stack = 15;
+    this.withdrawal = 0;
+    this.ngOnInit();
+  }
+
+  mask() {
+    alert('ok');
   }
 }

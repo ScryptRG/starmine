@@ -3,7 +3,7 @@ $border-primary: 1px solid rgba(255, 255, 255, 0.234);
 section {
   display: flex;
   flex-wrap: wrap;
-  max-width: 52em;
+  max-width: 52.5em;
   gap: 1em;
   border: $border-primary;
   border-radius: 1em;
@@ -26,13 +26,30 @@ section {
 }
 
 .greenSqr {
-  background-color: green !important;
+  background-color: rgb(61, 88, 61) !important;
 }
 
 .redSqr {
-  background-color: red !important;
+  background-color: rgb(40, 6, 6) !important;
 }
 
 .neutralSqr {
   background: transparent !important;
+}
+
+span {
+  font-family: "Rubik";
+  font-size: 4rem;
+  color: green;
+  font-weight: 600;
+}
+
+input {
+  background: transparent;
+  border: $border-primary;
+  border-radius: 0.5em;
+  color: #fff;
+  padding: 0.5em;
+  max-width: 5em;
+  align-self: center;
 }
