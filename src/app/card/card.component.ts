@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import 'iconify-icon';
 interface ItemsInterface {
   id: number;
   isClicked: boolean;
