@@ -19,7 +19,7 @@ export class CardComponent {
   stack: number = 15;
   withdrawal: number = 0;
   ngOnInit(): void {
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 48; i++) {
       this.items = [...this.items, { id: i, isClicked: false }];
     }
     this.rightIndex = Math.floor(Math.random() * this.items.length);

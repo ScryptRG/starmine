@@ -3,11 +3,12 @@ $border-primary: 1px solid rgba(255, 255, 255, 0.234);
 section {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   max-width: 52.5em;
   gap: 1em;
   border: $border-primary;
   border-radius: 1em;
-  padding: 2em;
+  padding: 2em 1em;
   color: #eee;
   font-family: "Rubik";
   button {
@@ -39,7 +40,7 @@ section {
 
 span {
   font-family: "Rubik";
-  font-size: 4rem;
+  font-size: 2.5rem;
   color: green;
   font-weight: 600;
 }
