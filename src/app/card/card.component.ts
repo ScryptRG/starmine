@@ -23,7 +23,7 @@ export class CardComponent {
   numbers: number[] = [];
 
   ngOnInit(): void {
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 42; i++) {
       this.numbers.push(i);
       this.items = [...this.items, { id: i, isClicked: false }];
     }
