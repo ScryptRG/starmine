@@ -20,10 +20,10 @@ export class CardComponent {
   stack: number = 15;
   withdrawal: number = 0;
   discard: boolean = false;
-  numbers: number[] = [0, 1, 2, 3, 4, 5];
+  numbers: number[] = [];
 
   ngOnInit(): void {
-    for (let i = 0; i < 42; i++) {
+    for (let i = 0; i < 100; i++) {
       this.numbers.push(i);
       this.items = [...this.items, { id: i, isClicked: false }];
     }
